@@ -1,0 +1,46 @@
+!pip install mtcnn
+from flask import Flask, request, jsonify
+import numpy as np
+import pandas
+import os
+import cv2
+from sklearn.preprocessing import LabelEncoder
+from mtcnn import MTCNN
+import pickle
+from sklearn.model_selection import train_test_split
+from keras.models import Sequential
+from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
+from keras.preprocessing.image import ImageDataGenerator
+from pathlib import Path
+
+app = Flask(_name_)
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    # Load the saved model and label encoder
+    model = load_model('/content/face (1).ipynb')
+    with open('label_encoder.pkl', 'rb') as f:
+        label_encoder = pickle.load(f)
+
+    # Load and preprocess the input image
+    image_file = request.files['image']
+    image = cv2.imdecode(np.fromstring(image_file.read(), np.uint8), cv2.IMREAD_COLOR)
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    detector = MTCNN()
+    results = detector.detect_faces(image)
+    x1, y1, width, height = results[0]['box']
+    x2, y2 = x1 + width, y1 + height
+    face = image[y1:y2, x1:x2]
+    face = cv2.resize(face, (224, 224))
+    face = face / 255
+    face = np.array(face)
+    face = np.expand_dims(face, axis=0)
+
+    # Make predictions
+    prediction = model.predict(face)
+    predicted_label = label_encoder.inverse_transform(np.argmax(prediction))
+
+    return jsonify({'predicted_label': predicted_label})
+
+if _name_ == '_main_':
+    app.run(debug=True)
