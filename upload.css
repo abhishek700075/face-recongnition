@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('./assets/bg.jpg');
+    background-size: cover;
+    color: white;
+}
+
+#logo {
+    width: 4rem;
+    height: 4rem;
+    padding: 5px 10px;
+}
+header {
+    background: linear-gradient(to right, #2efff440, #00000024);
+    padding: 1rem -2rem;
+    margin: 1rem 0rem;
+    border: 1px solid #ffffff2b;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.section {
+    display: flex;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+li {
+    list-style-type: none;
+    cursor: pointer;
+    margin: auto 10px;
+    color: rgba(255, 255, 255, 0.596);
+}
+
+li:hover {
+    color: rgb(255, 255, 255);
+    /* transform: ; */
+    transition:ease-in-out 0.5s;
+}
+
+.container {
+    background: linear-gradient(to right, #ffffff17, #00000024);
+    backdrop-filter: blur(2px);
+    border-radius: 10px;
+    color: white;
+    border: 1px solid #ffffff54;
+    text-align: center;
+    height: 75vh;
+    margin: auto 5rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#choose{
+    border-radius: 10px;
+    border: dotted;
+    background-color: #0000004f;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 4rem;
+    cursor: pointer;
+}
+
+#upload {
+    background-color: #07906e;
+    color: white;
+    padding: 1rem 3rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 1rem 9rem;
+}
+
+#upload:hover {
+    background-color: #077257;
+}
+
+#face-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#face-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    background-color: #00000087;
+    padding: 10px 10px;
+    border-radius: 5px;
+    border: none;
+    margin: 5px 0px;
+    color: white;
+}

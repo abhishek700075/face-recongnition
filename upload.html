@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Facial Recognition Demo</title>
+    <link rel="stylesheet" type="text/css" href="./index.css">
+    <link rel="icon" type="image/x-icon" href="./assets/logo.png">
+</head>
+<body>
+    <header>
+        <div class="section">
+            <img id="logo" src="./assets/logo.png" alt="">
+            <h1>Facial Recognition</h1>
+        </div>
+        <div class="section">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+                <li>FAQ</li>
+            </ul>
+        </div>
+       
+    </header>
+    <div class="container">
+        <div class="upload-section">
+            <h2>Enter Details</h2>
+            <form id="upload-form">
+                <input type="text" placeholder="Enter Your Name" />
+                <input type="number"  placeholder="Enter Your Mobile No." />
+                <input type="email" placeholder="Enter Your Email" />
+                <input id="choose" type="file" id="image-upload" accept="image/*" />
+                <input id="upload" type="submit"  value="Submit" />
+            </form>
+        </div>
+        <div class="results-section">
+            <h2>Results</h2>
+            <ul id="face-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
